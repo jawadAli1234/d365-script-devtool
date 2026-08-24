@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "D365 Script Devtool",
+  "version": "0.1.0",
+  "description": "Attach OnLoad/OnSave/OnChange scripts to any Dataverse form directly from the browser, without the maker portal form editor.",
+  "permissions": ["scripting", "tabs", "storage", "browsingData"],
+  "host_permissions": [
+    "*://*.dynamics.com/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "D365 Script Devtool - click to show/hide panel",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.dynamics.com/main.aspx*"],
+      "js": [
+        "lib/codemirror.js",
+        "lib/cm-mode-javascript.js",
+        "lib/cm-mode-xml.js",
+        "lib/cm-mode-css.js",
+        "lib/cm-mode-htmlmixed.js",
+        "content-script.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/codemirror.css", "lib/material-darker.css"],
+      "matches": ["*://*.dynamics.com/*"]
+    }
+  ]
+}
