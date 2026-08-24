@@ -3,6 +3,20 @@
 Attach OnLoad / OnSave / OnChange scripts to a Dataverse form directly from the form
 itself — no maker portal, no page to migrate between environments.
 
+## Screenshots
+
+**A published OnLoad script firing on a real record:**
+
+![Working OnLoad script](screenshots/banner-working.png)
+
+**Attached scripts, grouped by OnLoad / OnSave / OnChange, all populated with real handlers:**
+
+![Attached scripts panel](screenshots/attached-scripts.png)
+
+**Inline script editor with full syntax highlighting (CodeMirror), field reference, and event settings:**
+
+![Inline editor](screenshots/inline-editor.png)
+
 ## Load it (unpacked)
 
 1. Open `chrome://extensions`.
